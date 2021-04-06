@@ -1,7 +1,8 @@
 <html>
 <head>
     <link rel="stylesheet" href="app.css" />
-    
+    <link rel="stylesheet" href="menu.css" />
+    <title>Shortest Job First</title>
     <script src="js/jquery-3.1.0.min.js"></script>
     <script>
         var ready_queue = [];
@@ -59,7 +60,7 @@
                         }
 
                         if(GLOBAL_startTime < tmp_at){
-                            $('#gantt_chart').append('<div class="gantt_block bubble" style="background-color: white; width: 10%; border: 1px solid #333333; color: black;">BUBBLE<br/>'+GLOBAL_startTime+' - '+tmp_at+'</div>');
+                            $('#gantt_chart').append('<div class="gantt_block bubble" style="background-color: white; width: 10%; color: black;">BUBBLE<br/>'+GLOBAL_startTime+' - '+tmp_at+'</div>');
                             GLOBAL_startTime = tmp_at;
                         }
 
@@ -176,22 +177,20 @@ $(window).on('load', function() {
   $('body').delay(350).css({'overflow':'visible'});
 })
 </script>
-<h1>Shortest Job First</h1>
-<br/>
-
-Scheduling Methods
- <select id="methods">
-                        <option value=""></option>
-                        <option value="FirstComeFirstServe.html">First Come, First Serve (FCFS)</option>
-                        <option value="ShortestJobFirst.html">Shortest Job First</option>
-                        <option value="RoundRobin.html">Round Robin</option>
-                        <option value="PriorityNonPreemptive.html">Priority Non-Preemptive</option>
-                        <option value="PriorityPreemptive.html">Priority Preemptive</option>
-
-                    </select>
-
-<br/>
-<br/>
+<header id="header">
+    <nav class="links" style="--items: 5;">
+        <a href="FirstComeFirstServe.html">First Come, First Serve (FCFS)</a>
+        <a href="ShortestJobFirst.html">Shortest Job First</a>
+        <a href="RoundRobin.html">Round Robin</a>
+        <a href="PriorityNonPreemptive.html">Priority Non-Preemptive</a>
+        <a href="PriorityPreemptive.html">Priority Preemptive</a>
+        <span class="line"></span>
+    </nav>
+</header>
+<br><br><br><br>
+<h2>Shortest Job First</h2>
+<br><br>
+<center>
 <table border="1">
     <thead>
     <tr>
@@ -246,13 +245,6 @@ Scheduling Methods
 <div style="clear: both;"></div>
 <p id="cust_console" style="color:red;"></p>
 <button id="INIT_COMPUTE">Compute</button>
-
-
-<div class="th">
-<p class="blink">Developed by <br> <a href="https://github.com/hemanth-07-11" target=_blank><b><font color="black"> HEMANTH N </font></b></a></p>
-</div>
-</b>
-
-</b>
+</center>
 </body>
 </html>

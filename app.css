@@ -1,55 +1,71 @@
  body {
-        font-family : Arial;
-        background-image: linear-gradient(#ffeded,#f0dfdf,#e0e0e0);
-            }
-    td {
-        padding : 0.3em;
-        text-align : center;
-    }
-    thead {
-        font-weight : bold;
-    }
-    .gantt_block {
-        text-align: center;
-        padding: 0.4em;
-        height: 5em;
-        float: left;
-        display: block;
-        color: whitesmoke;
-        font-weight: bold;
-    }
-    table {
-        border-collapse : collapse;
-    }
+  font-family: 'Lato';
+  background-color:#fefefe;
+ }
+td {
+  padding : 0.3em;
+  text-align : center;
+}
 
-    h1 {
-  	    color: red;
- 	    text-align: center;
-  	    font-family: Verdana;
-        font-weight: bold;
-        padding: 32px;
-  	   
-        margin: 30px ;
-         
-          
+.gantt_block {
+  text-align: center;
+  padding: 0.4em;
+  height: 5em;
+  float: left;
+  display: block;
+  color: whitesmoke;
+  font-weight: 500;
+}
+table {
+   border-collapse : collapse;
+}
+h1 {
+  color: rgb(39, 39, 39);
+ 	text-align: center;
+  font-family: 'Lato';
 
 }
-    .bubble {
-        -webkit-box-shadow: 0px 0px 21px 1px rgba(0,0,0,0.84);
-        -moz-box-shadow: 0px 0px 21px 1px rgba(0,0,0,0.84);
-        box-shadow: 0px 0px 21px 1px rgba(0,0,0,0.84);
-        text-align: center;
-        padding: 0.4em;
-        height: 5em;
-        float: left;
-        display: block;
-        color: whitesmoke;
-        font-weight: bold;
-    }
+h2 {
+  color: rgb(70, 70, 70);
+ 	text-align: center;
+  font-family: 'Lato';
 
+}
+#card {
+  width: 30%;
+  height: 40%;
+  background-color: rgba(255, 255, 255, 0.774);
+  box-shadow:  0px 2px 6px -1px rgba(0,0,0,.13);
+  margin-top: 10em;
+  padding: 1em;
+  border-radius: 3%;
+}
+button {
+  background-color:  #6c3;
+  border: none;
+  width: 10em;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+}
+a {
+  text-decoration-line: none;
+  color:rgb(39, 39, 39);
+}
 
-
-
+.bubble {
+  text-align: center;
+  padding: 0.4em;
+  height: 5em;
+  float: left;
+  display: block;
+  color: whitesmoke;
+  border-radius: 0%;
+  border-color: whitesmoke;
+}
 #preloader {
   position: fixed;
   top: 0;
@@ -60,7 +76,6 @@
   z-index: 99;
 
 }
-
 #status {
   width: 200px;
   height: 200px;
@@ -74,48 +89,5 @@
 }
 
 
-.th {
-  position: absolute;
-transition: transform .2s; 
-  bottom: 10px;
-font-family:Segoe Print;
-  left: 50px;
-
- color:yellow;
- -ms-transform: rotate(360deg); /* IE 9 */
-  transform: rotate(360deg);
-  text-shadow: 1px 3px #8CF7F2;
-  font-size: 25px;
-   -webkit-animation: glow 1s ease-in-out infinite alternate;
-  -moz-animation: glow 1s ease-in-out infinite alternate;
-  animation: glow 1s ease-in-out infinite alternate;
-
-}
-.th:hover{
-
-transform: scale(1.1);
- -ms-transform: rotate(360deg); /* IE 9 */
-  transform: rotate(360deg);
-font-size: 40px
-}
-
-.blink {
-      animation: blinker 1.6s linear infinite;
-      color: black;
-      font-size: 26px;
-      font-weight: bold;
-      font-family:cursive;
-      }
-      @keyframes blinker {  
-      50% { opacity: 0; }
-      }
-@-webkit-keyframes glow {
-  from {
-    text-shadow: 0 0 10px #F4F967, 0 0 20px #F4F967 , 0 0 30px #F4F967, 0 0 40px #F4F967, 0 0 50px red, 0 0 60px white, 0 0 70px 0C0A0A;
-  }
-  
-  to {
-    text-shadow: 0 0 20px red, 0 0 30px #ff4da6, 0 0 40px #EEE972, 0 0 50px red, 0 0 60px #EEE972, 0 0 70px red, 0 0 80px #F4F967;
-  }}
 
 
