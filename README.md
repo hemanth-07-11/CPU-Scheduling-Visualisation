@@ -4,7 +4,6 @@ This is an attempt at simulating CPU Scheduling algorithms - FCFS, SJF, RR, Prio
 
 # Demo of the application 
 
- https://hemanthnprojects.000webhostapp.com/CPU_Scheduling/
  
  # Contributions
  
