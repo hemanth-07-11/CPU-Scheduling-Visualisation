@@ -10,8 +10,8 @@
 		<script src="js/jquery-3.1.0.min.js"></script>
 		<script>
 
-
-			$(document).ready(function(){
+            var num = 4
+			function loadValues(){
                 $('input').each(function(){
                     $(this).val(Math.floor(Math.random() * 10) + 1);
                 });
@@ -52,7 +52,7 @@
                             }
 
                             end_time = start_time + parseFloat(curr_bursttime);
-                            my_gantt_chart.append('<div class="gantt_block" style="background-color: '+my_colors[index]+'; width: '+curr_width+'%;">'+curr_process+'<br/>'+start_time+' - '+end_time+'</div>');
+                            my_gantt_chart.append('<div class="gantt_block" style="background-color: '+my_colors[index%4]+'; width: '+curr_width+'%;">'+curr_process+'<br/>'+start_time+' - '+end_time+'</div>');
                             
 
 
@@ -82,7 +82,8 @@
 				$('#methods').change(function(){
 					location.href = $(this).val();
 				})
-			});
+			};
+            $(document).ready(loadValues);
 
             function GET_BURSTTIME_TOTAL(){
                 var total = 0.0;
@@ -142,6 +143,25 @@
 
 				return flag;
 			}
+            function addRow()
+            {
+                var lastRow = $('#table tr:last');
+                var table = document.getElementById('table')
+                let row = '<tr><td>P' 
+                + (num + 1)
+                + '</td>+<td><input data-process="P'
+                + (num+1)
+                + '" type="text" class="arrival_time" /></td><td><input data-process="P'
+                + (num+1)
+                + '" type="text" class="burst_time" /></td><td><span class="TAT" id="P'
+                + (num+1)
+                + '_TAT"></span></td><td><span class="WT" id="P'
+                + (num+1)
+                + '_WT"></span></td></tr>';
+                lastRow.before(row)
+                num+=1
+                loadValues()
+            }
 		</script>
 	</head>
 	<body>
@@ -170,7 +190,7 @@ $(window).on('load', function() {
 <h2>First Come, First Serve (FCFS)</h2>
 <br><br>
 <center>
-<table border="1">
+<table border="1" id="table" class="table">
 			<thead>
 				<tr>
 					<td>Process Name</td>
@@ -217,9 +237,11 @@ $(window).on('load', function() {
                 </tr>
 			</tbody>
 		</table>
+        <br/><br/>
+        <button type="button" class="addBtn" onclick="addRow();">Add Row</button>
         <br/>
-	<!-- <p>Hello</p> -->
-        <div style="width: 95%">
+        <br/>
+        <div class="resultTable" style="width: 95%">
             <div id="gantt_chart">
             </div>
         </div>
