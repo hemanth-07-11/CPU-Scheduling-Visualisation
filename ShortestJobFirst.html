@@ -77,7 +77,7 @@
 
                         var curr_width = ((tmp_burst / GET_BURSTTIME_TOTAL()) * 80); 
 
-                        $('#gantt_chart').append('<div class="gantt_block" style="background-color: '+my_colors[o]+'; width: '+curr_width+'%;">P'+tmp_process+'<br/>'+GLOBAL_startTime+' - '+GLOBAL_endTime+'</div>');
+                        $('#gantt_chart').append('<div class="gantt_block" style="background-color: '+my_colors[o%4]+'; width: '+curr_width+'%;">P'+tmp_process+'<br/>'+GLOBAL_startTime+' - '+GLOBAL_endTime+'</div>');
 
                         GLOBAL_startTime = GLOBAL_endTime;
                     }
