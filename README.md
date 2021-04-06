@@ -7,4 +7,4 @@ https://hemanth-07-11.github.io/CPU-Scheduling-Visualisation/
  
  # Contributors
  
- Special Thanks to [Ramyaa P](https://github.com/ramyaaprasath) for her valuable contributions to the User interface and designs
+ Special Thanks to [Ramyaa P](https://github.com/ramyaaprasath) for her valuable contributions in designing and UI 
