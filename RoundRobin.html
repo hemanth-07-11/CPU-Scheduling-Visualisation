@@ -26,7 +26,8 @@ var my_colors = [
 var pr_done = 0;
 var quantum = 0;
 var burst_counter = 0;
-$(document).ready(function(){
+var num = 4
+			function loadValues(){
 
     $('input').each(function(){
         $(this).val(Math.floor(Math.random() * 10) + 1);
@@ -130,8 +131,8 @@ $(document).ready(function(){
     $('#methods').change(function(){
         location.href = $(this).val();
     })
-});
-
+};
+$(document).ready(loadValues);
 function checkValues(){
     var flag = true;
     $('#cust_console').empty();
@@ -260,6 +261,25 @@ function SORT_READY_QUEUE(){
         return a.split('?')[1] - b.split('?')[1]
     });
 }
+function addRow()
+{
+    var lastRow = $('#table tr:last');
+    var table = document.getElementById('table')
+    let row = '<tr><td>P' 
+    + (num + 1)
+    + '</td><td><input data-process='
+    + (num+1)
+    + ' type="text" class="arrival_time" /></td><td><input data-process='
+    + (num+1)
+    + ' type="text" class="burst_time" /></td><td><span class="TAT" id="P'
+    + (num+1)
+    + '_TAT"></span></td><td><span class="WT" id="P'
+    + (num+1)
+    + '_WT"></span></td></tr>';
+    lastRow.before(row)
+    num+=1
+    loadValues()
+}
 </script>
 </head>
 <body>
@@ -288,7 +308,7 @@ $(window).on('load', function() {
 <h2>Round Robin </h2>
 <br><br>
 <center>
-<table border="1">
+<table border="1" id="table" class="table">
     <thead>
     <tr>
         <td>Process Name</td>
@@ -339,6 +359,10 @@ $(window).on('load', function() {
     Quantum = <input type="text" id="quantum" />
 </center>
 <br/>
+<br/><br/>
+        <button type="button" class="addBtn" onclick="addRow();">Add Row</button>
+        <br/>
+        <br/>
 <div style="width: 90%">
     <div id="gantt_chart">
     </div>
