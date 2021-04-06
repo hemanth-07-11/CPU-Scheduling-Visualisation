@@ -2,9 +2,9 @@
 
 This is an attempt at simulating CPU Scheduling algorithms - FCFS, SJF, RR, Priority Scheduling.
 
-# Demo of the application 
-
+# Link
+https://hemanth-07-11.github.io/CPU-Scheduling-Visualisation/
  
- # Contributions
+ # Contributors
  
- Feel free to contribute to the UI and also any additional functionalites if it needs to be added.
+ Special Thanks to [Ramyaa P](https://github.com/ramyaaprasath) for her valuable contributions to the User interface and designs
