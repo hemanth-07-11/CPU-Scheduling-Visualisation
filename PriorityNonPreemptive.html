@@ -42,7 +42,7 @@
                             if(cpu_process != null){ 
                                 if(i == GLOBAL_endTime){
                                     var curr_width = (((GLOBAL_endTime - GLOBAL_startTime) / GET_BURSTTIME_SUM()) * 80); 
-                                    $('#gantt_chart').append('<div data-process="'+cpu_process+'" data-start="'+GLOBAL_startTime+'" data-end="'+GLOBAL_endTime+'" class="gantt_block" style="background-color: '+my_colors[(cpu_process-1)]+'; width: '+curr_width+'%;">P'+cpu_process+'<br/>'+GLOBAL_startTime+' - '+GLOBAL_endTime+'</div>');
+                                    $('#gantt_chart').append('<div data-process="'+cpu_process+'" data-start="'+GLOBAL_startTime+'" data-end="'+GLOBAL_endTime+'" class="gantt_block" style="background-color: '+my_colors[(cpu_process-1)%4]+'; width: '+curr_width+'%;">P'+cpu_process+'<br/>'+GLOBAL_startTime+' - '+GLOBAL_endTime+'</div>');
                                     pr_done++;
 
                               
