@@ -26,7 +26,8 @@
             var i = null;
             var pr_done = 0;
 
-            $(document).ready(function(){
+            var num = 4
+            function loadValues(){
                 $('#methods').change(function(){
                     location.href = $(this).val();
                 });
@@ -90,8 +91,8 @@
                         $('#AVG_WT').empty().append((total_WT/4));
                     }
                 })
-            });
-
+            };
+            $(document).ready(loadValues);
             function GET_BURSTTIME_SUM(){
                 var total = 0.0;
                 $('.burst_time').each(function(index){
@@ -174,6 +175,27 @@
                     return a.split('?')[2] - b.split('?')[2]
                 });
             }
+            function addRow()
+            {
+                var lastRow = $('#table tr:last');
+                var table = document.getElementById('table')
+                let row = '<tr><td>P' 
+                + (num + 1)
+                + '</td><td><input data-process='
+                + (num+1)
+                + ' type="text" class="arrival_time" /></td><td><input data-process='
+                + (num+1)
+                + ' type="text" class="burst_time" /></td><td><input data-process='
+                + (num+1)
+                + ' type="text" class="priority" /></td><td><span class="TAT" id="P'
+                + (num+1)
+                + '_TAT"></span></td><td><span class="WT" id="P'
+                + (num+1)
+                + '_WT"></span></td></tr>';
+                lastRow.before(row)
+                num+=1
+                loadValues()
+            }
         </script>
     </head>
     <body>
@@ -201,7 +223,7 @@ $(window).on('load', function() {
     <h2>Priority Non-Preemptive</h2>
     <br><br>
     <center>
-        <table border="1">
+        <table border="1" id="table" class="table">
             <thead>
             <tr>
                 <td>Process Name</td>
@@ -252,7 +274,9 @@ $(window).on('load', function() {
             </tr>
             </tbody>
         </table>
-        <br/>
+        <br/><br/>
+        <button type="button" class="addBtn" onclick="addRow();">Add Row</button>
+        <br/><br/>
         <div style="width: 90%">
             <div id="gantt_chart">
             </div>
