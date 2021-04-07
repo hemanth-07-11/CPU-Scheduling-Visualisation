@@ -1,0 +1,243 @@
+<html>
+<head>
+<link rel="stylesheet" href="app.css" />
+<link rel="stylesheet" href="menu.css" />
+<link rel="stylesheet" href="util.css" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>First Come First Serve </title>
+		
+		<script src="js/jquery-3.1.0.min.js"></script>
+		<script>
+
+
+			$(document).ready(function(){
+                $('input').each(function(){
+                    $(this).val(Math.floor(Math.random() * 10) + 1);
+                });
+				$('#INIT_COMPUTE').click(function(){ 
+					if(checkValues()){ 
+                        var ready_queue = [];
+                        var my_gantt_chart = $('#gantt_chart'); 
+                        var my_colors = [
+                            '#fa2d3b',
+                            '#5d62f5',
+                            '#48b08f',
+                            '#611a12'
+                        ];
+
+                        my_gantt_chart.empty();
+
+                        for(var x=0; x <= GET_BURSTTIME_TOTAL(); x++){
+                            $('.arrival_time').each(function(index){
+                                if(parseFloat(x) == parseFloat($(this).val())){
+                                    ready_queue.push((index+1));
+                                }
+                            });
+                        }
+
+                        var start_time = GET_ARRIVALTIME_LOWEST();
+                        var end_time = 0; 
+                        $.each(ready_queue, function(index, value){ 
+                            var curr_process = 'P'+value; 
+                            var curr_arrivaltime = $('[data-process="P'+value+'"][class="arrival_time"]').val(); 
+                            var curr_bursttime = $('[data-process="P'+value+'"][class="burst_time"]').val(); 
+                            var curr_width = (curr_bursttime / parseFloat(GET_BURSTTIME_TOTAL())) * 80;
+                            var elem_TAT = $('#'+curr_process+'_TAT'); 
+                            var elem_WT = $('#'+curr_process+'_WT'); 
+                            
+                            if(curr_arrivaltime > start_time){ 
+                                my_gantt_chart.append('<div class="gantt_block bubble" style="background-color: white; width: 10%; border: 1px solid #333333; color: black;">BUBBLE<br/>'+start_time+' - '+curr_arrivaltime+'</div>'); 
+                                start_time = parseFloat(curr_arrivaltime);
+                            }
+
+                            end_time = start_time + parseFloat(curr_bursttime);
+                            my_gantt_chart.append('<div class="gantt_block" style="background-color: '+my_colors[index]+'; width: '+curr_width+'%;">'+curr_process+'<br/>'+start_time+' - '+end_time+'</div>');
+                            
+
+
+                            var TAT = end_time - curr_arrivaltime;
+                            elem_TAT.empty().append(TAT);
+                            
+                            var WT = start_time - curr_arrivaltime;
+                            elem_WT.empty().append(WT);
+                            start_time = end_time; 
+                        });
+
+                       
+                        var total_tat = 0;
+                        $('.TAT').each(function(index, value){
+                            total_tat += parseFloat($(this).text());
+                        });
+                        $('#AVG_TAT').empty().append((parseFloat(total_tat)/parseFloat(ready_queue.length)));
+                     
+                        var total_wt = 0;
+                        $('.WT').each(function(index, value){
+                            total_wt += parseFloat($(this).text());
+                        });
+                        $('#AVG_WT').empty().append((parseFloat(total_wt)/parseFloat(ready_queue.length)));
+
+					}
+				});
+				$('#methods').change(function(){
+					location.href = $(this).val();
+				})
+			});
+
+            function GET_BURSTTIME_TOTAL(){
+                var total = 0.0;
+                $('.burst_time').each(function(index){
+                    total += parseFloat($(this).val());
+                });
+
+                if(parseFloat(total) < GET_ARRIVALTIME_HIGHEST()){
+                    total = GET_ARRIVALTIME_HIGHEST();
+                }
+
+                return parseFloat(total);
+            }
+
+            function GET_ARRIVALTIME_HIGHEST(){
+                var highest = 0;
+                $('.arrival_time').each(function(){
+                    if(highest == 0){
+                        highest = parseFloat($(this).val());
+                    }
+                    if(parseFloat($(this).val()) > highest){
+                        highest = parseFloat($(this).val());
+                    }
+                });
+                return parseFloat(highest);
+            }
+
+            function GET_ARRIVALTIME_LOWEST(){
+                var lowest = GET_ARRIVALTIME_HIGHEST();
+                $('.arrival_time').each(function(){
+                    var at = parseFloat($(this).val());
+                    if(at < lowest){
+                        lowest = at;
+                    }
+                });
+
+                return parseFloat(lowest);
+            }
+
+			function checkValues(){
+				var flag = true;
+				$('#cust_console').empty();
+				$('.arrival_time').each(function(index){
+					
+					if($(this).val() == '' || !$.isNumeric($(this).val())){
+						$('#cust_console').append('Please input a number for Arrival Time for Process P'+(index+1)+'<br/>');
+						flag = false;
+					}
+				});
+				$('.burst_time').each(function(index){
+					
+					if($(this).val() == '' || !$.isNumeric($(this).val())){
+						$('#cust_console').append('Please input a number for Burst Time for Process P'+(index+1)+'<br/>');
+						flag = false;
+					}
+				});
+
+				return flag;
+			}
+		</script>
+	</head>
+	<body>
+
+<div id="preloader">
+  <div id="status">&nbsp;</div>
+</div>
+<script>
+$(window).on('load', function() { 
+  $('#status').fadeOut(); 
+  $('#preloader').delay(350).fadeOut('slow'); 
+  $('body').delay(350).css({'overflow':'visible'});
+})
+</script>
+
+<header id="header">
+	<nav class="links" style="--items: 5;">
+		<a href="FirstComeFirstServe.html">First Come, First Serve (FCFS)</a>
+		<a href="ShortestJobFirst.html">Shortest Job First</a>
+		<a href="RoundRobin.html">Round Robin</a>
+		<a href="PriorityNonPreemptive.html">Priority Non-Preemptive</a>
+		<a href="PriorityPreemptive.html">Priority Preemptive</a>
+		<span class="line"></span>
+	</nav>
+</header>
+
+<br><br><br><br>
+<h2>First Come, First Serve (FCFS)</h2>
+<br><br>
+<center>
+    <div class="table-wrapper">
+        	
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100">
+<table border="1">
+			<thead>
+				<tr class="table100-head">
+					<th class="column1">Process Name</th>
+					<th class="column2">Arrival Time</th>
+					<th class="column3">Burst Time</th>
+					<th class="column4">Turn-Around Time</th>
+					<th class="column5">Waiting Time</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="column1">P1</td>
+					<td class="column2"><input data-process="P1" type="text" class="arrival_time" /></td>
+					<td class="column3"><input data-process="P1" type="text" class="burst_time" /></td>
+                    <td class="column4"><span class="TAT" id="P1_TAT"></span></td>
+                    <td class="column5"><span class="WT" id="P1_WT"></span></td>
+				</tr>
+				<tr>
+					<td class="column1">P2</td>
+					<td class="column2"><input data-process="P2" type="text" class="arrival_time" /></td>
+					<td class="column3"><input data-process="P2" type="text" class="burst_time" /></td>
+                    <td class="column4"><span class="TAT" id="P2_TAT"></span></td>
+                    <td class="column5"><span class="WT" id="P2_WT"></span></td>
+				</tr>
+				<tr>
+					<td class="column1">P3</td>
+					<td class="column2"><input data-process="P3" type="text" class="arrival_time" /></td>
+					<td class="column3"><input data-process="P3" type="text" class="burst_time" /></td>
+                    <td class="column4"><span class="TAT" id="P3_TAT"></span></td>
+                    <td class="column5"><span class="WT" id="P3_WT"></span></td>
+				</tr>
+				<tr>
+					<td class="column1">P4</td>
+					<td class="column2"><input data-process="P4" type="text" class="arrival_time" /></td>
+					<td class="column3"><input data-process="P4" type="text" class="burst_time" /></td>
+                    <td class="column4"><span class="TAT" id="P4_TAT"></span></td>
+                    <td class="column5"><span class="WT" id="P4_WT"></span></td>
+				</tr>
+
+                <tr>
+                    <td colspan="3">Average</td>
+                    <td><span id="AVG_TAT"></span></td>
+                    <td><span id="AVG_WT"></span></td>
+                </tr>
+			</tbody>
+		</table>
+    </div>
+</div>
+</div>
+</div>
+        <br/>
+        <div style="width: 95%">
+            <div id="gantt_chart">
+            </div>
+        </div>
+        <div style="clear: both;"></div>
+		<p id="cust_console" style="color:red;"></p>
+		<button id="INIT_COMPUTE">Compute</button>
+    
+</center>
+</body>
+</html>

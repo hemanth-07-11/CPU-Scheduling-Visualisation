@@ -1,0 +1,199 @@
+ body {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  overflow-y: hidden ;
+ }
+
+
+.gantt_block {
+  text-align: center;
+  padding: 0.4em;
+  height: 5em;
+  float: left;
+  display: block;
+  color: whitesmoke;
+  font-weight: 500;
+}
+
+h1 {
+  color: rgb(39, 39, 39);
+ 	text-align: center;
+  font-family: 'Lato';
+
+}
+h2 {
+  color: rgb(70, 70, 70);
+ 	text-align: center;
+  font-family: 'Lato';
+
+}
+#card {
+  width: 30%;
+  height: 40%;
+  background-color: rgba(255, 255, 255, 0.774);
+  box-shadow:  0px 2px 6px -1px rgba(0,0,0,.13);
+  margin-top: 10em;
+  padding: 1em;
+  border-radius: 3%;
+}
+button {
+  background-color:  #6c3;
+  border: none;
+  width: 10em;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+}
+a {
+  text-decoration-line: none;
+  color:rgb(39, 39, 39);
+}
+
+.bubble {
+  text-align: center;
+  padding: 0.4em;
+  height: 5em;
+  float: left;
+  display: block;
+  color: whitesmoke;
+  border-radius: 0%;
+  border-color: whitesmoke;
+}
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000;
+  z-index: 99;
+
+}
+#status {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-image: url(https://i.pinimg.com/originals/f9/0f/76/f90f7689233948005f465d98ead56d44.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: -100px 0 0 -100px;
+}
+
+
+ul, li {
+	margin: 0px;
+	list-style-type: none;
+}
+
+input {
+  display: block;
+	outline: none;
+	border: none !important;
+}
+textarea {
+  display: block;
+  outline: none;
+}
+
+textarea:focus, input:focus {
+  border-color: transparent !important;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+iframe {
+	border: none !important;
+}
+
+.limiter {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container-table100 {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.wrap-table100 {
+  width: 1170px;
+}
+
+table {
+  border-spacing: 1;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 7px;
+  overflow: hidden;
+  width: 70%;
+  margin: 0 auto;
+  position: relative;
+}
+
+table * {
+  position: relative;
+}
+table td, table th {
+  padding-left: 8px;
+  border: rgb(0, 0, 0);
+  border-width: thin;
+}
+table thead tr {
+  height: 60px;
+  background: rgba(102, 204, 51, 0.555);
+  font-size: 20px;
+  font-weight: 400;
+}
+table tbody tr {
+  height: 50px;
+  font-weight: 500;
+  color: rgb(78, 78, 78);
+}
+table tbody tr:last-child {
+  border: 0;
+}
+table td, table th {
+  text-align: left;
+}
+table td.l, table th.l {
+  text-align:  left;
+}
+table td.c, table th.c {
+  text-align: left;
+}
+table td.r, table th.r {
+  text-align: left;
+}
+
+
+.table100-head th{
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: unset;
+}
+
+tbody tr {
+  font-family: OpenSans-Regular;
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+tbody tr:hover {
+  background-color: rgba(226, 226, 226, 0.658);;
+  cursor: pointer;
+}
+
+
+
+
+
+
