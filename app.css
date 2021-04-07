@@ -1,11 +1,8 @@
  body {
-  font-family: 'Lato';
-  background-color:#fefefe;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  overflow-y: hidden ;
  }
-td {
-  padding : 0.3em;
-  text-align : center;
-}
+
 
 .gantt_block {
   text-align: center;
@@ -16,9 +13,7 @@ td {
   color: whitesmoke;
   font-weight: 500;
 }
-table {
-   border-collapse : collapse;
-}
+
 h1 {
   color: rgb(39, 39, 39);
  	text-align: center;
@@ -87,6 +82,117 @@ a {
   background-position: center;
   margin: -100px 0 0 -100px;
 }
+
+
+ul, li {
+	margin: 0px;
+	list-style-type: none;
+}
+
+input {
+  display: block;
+	outline: none;
+	border: none !important;
+}
+textarea {
+  display: block;
+  outline: none;
+}
+
+textarea:focus, input:focus {
+  border-color: transparent !important;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+iframe {
+	border: none !important;
+}
+
+.limiter {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container-table100 {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.wrap-table100 {
+  width: 1170px;
+}
+
+table {
+  border-spacing: 1;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 7px;
+  overflow: hidden;
+  width: 70%;
+  margin: 0 auto;
+  position: relative;
+}
+
+table * {
+  position: relative;
+}
+table td, table th {
+  padding-left: 8px;
+  border: rgb(0, 0, 0);
+  border-width: thin;
+}
+table thead tr {
+  height: 60px;
+  background: rgba(102, 204, 51, 0.555);
+  font-size: 20px;
+  font-weight: 400;
+}
+table tbody tr {
+  height: 50px;
+  font-weight: 500;
+  color: rgb(78, 78, 78);
+}
+table tbody tr:last-child {
+  border: 0;
+}
+table td, table th {
+  text-align: left;
+}
+table td.l, table th.l {
+  text-align:  left;
+}
+table td.c, table th.c {
+  text-align: left;
+}
+table td.r, table th.r {
+  text-align: left;
+}
+
+
+.table100-head th{
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: unset;
+}
+
+tbody tr {
+  font-family: OpenSans-Regular;
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+tbody tr:hover {
+  background-color: rgba(226, 226, 226, 0.658);;
+  cursor: pointer;
+}
+
+
 
 
 

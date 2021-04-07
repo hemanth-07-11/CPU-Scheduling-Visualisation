@@ -2,7 +2,7 @@
 <head>
 <link rel="stylesheet" href="app.css" />
 <link rel="stylesheet" href="menu.css" />
-	    <link rel="icon" href="C:\Users\Ramyaa\Documents\projects\cpu.png" type="image/icon type">
+<link rel="stylesheet" href="util.css" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>First Come First Serve </title>
@@ -10,8 +10,8 @@
 		<script src="js/jquery-3.1.0.min.js"></script>
 		<script>
 
-            var num = 4
-			function loadValues(){
+
+			$(document).ready(function(){
                 $('input').each(function(){
                     $(this).val(Math.floor(Math.random() * 10) + 1);
                 });
@@ -52,7 +52,7 @@
                             }
 
                             end_time = start_time + parseFloat(curr_bursttime);
-                            my_gantt_chart.append('<div class="gantt_block" style="background-color: '+my_colors[index%4]+'; width: '+curr_width+'%;">'+curr_process+'<br/>'+start_time+' - '+end_time+'</div>');
+                            my_gantt_chart.append('<div class="gantt_block" style="background-color: '+my_colors[index]+'; width: '+curr_width+'%;">'+curr_process+'<br/>'+start_time+' - '+end_time+'</div>');
                             
 
 
@@ -82,8 +82,7 @@
 				$('#methods').change(function(){
 					location.href = $(this).val();
 				})
-			};
-            $(document).ready(loadValues);
+			});
 
             function GET_BURSTTIME_TOTAL(){
                 var total = 0.0;
@@ -143,25 +142,6 @@
 
 				return flag;
 			}
-            function addRow()
-            {
-                var lastRow = $('#table tr:last');
-                var table = document.getElementById('table')
-                let row = '<tr><td>P' 
-                + (num + 1)
-                + '</td>+<td><input data-process="P'
-                + (num+1)
-                + '" type="text" class="arrival_time" /></td><td><input data-process="P'
-                + (num+1)
-                + '" type="text" class="burst_time" /></td><td><span class="TAT" id="P'
-                + (num+1)
-                + '_TAT"></span></td><td><span class="WT" id="P'
-                + (num+1)
-                + '_WT"></span></td></tr>';
-                lastRow.before(row)
-                num+=1
-                loadValues()
-            }
 		</script>
 	</head>
 	<body>
@@ -176,6 +156,7 @@ $(window).on('load', function() {
   $('body').delay(350).css({'overflow':'visible'});
 })
 </script>
+
 <header id="header">
 	<nav class="links" style="--items: 5;">
 		<a href="FirstComeFirstServe.html">First Come, First Serve (FCFS)</a>
@@ -186,48 +167,55 @@ $(window).on('load', function() {
 		<span class="line"></span>
 	</nav>
 </header>
+
 <br><br><br><br>
 <h2>First Come, First Serve (FCFS)</h2>
 <br><br>
 <center>
-<table border="1" id="table" class="table">
+    <div class="table-wrapper">
+        	
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100">
+<table border="1">
 			<thead>
-				<tr>
-					<td>Process Name</td>
-					<td>Arrival Time</td>
-					<td>Burst Time</td>
-					<td>Turn-Around Time</td>
-					<td>Waiting Time</td>
+				<tr class="table100-head">
+					<th class="column1">Process Name</th>
+					<th class="column2">Arrival Time</th>
+					<th class="column3">Burst Time</th>
+					<th class="column4">Turn-Around Time</th>
+					<th class="column5">Waiting Time</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td>P1</td>
-					<td><input data-process="P1" type="text" class="arrival_time" /></td>
-					<td><input data-process="P1" type="text" class="burst_time" /></td>
-                    <td><span class="TAT" id="P1_TAT"></span></td>
-                    <td><span class="WT" id="P1_WT"></span></td>
+					<td class="column1">P1</td>
+					<td class="column2"><input data-process="P1" type="text" class="arrival_time" /></td>
+					<td class="column3"><input data-process="P1" type="text" class="burst_time" /></td>
+                    <td class="column4"><span class="TAT" id="P1_TAT"></span></td>
+                    <td class="column5"><span class="WT" id="P1_WT"></span></td>
 				</tr>
 				<tr>
-					<td>P2</td>
-					<td><input data-process="P2" type="text" class="arrival_time" /></td>
-					<td><input data-process="P2" type="text" class="burst_time" /></td>
-                    <td><span class="TAT" id="P2_TAT"></span></td>
-                    <td><span class="WT" id="P2_WT"></span></td>
+					<td class="column1">P2</td>
+					<td class="column2"><input data-process="P2" type="text" class="arrival_time" /></td>
+					<td class="column3"><input data-process="P2" type="text" class="burst_time" /></td>
+                    <td class="column4"><span class="TAT" id="P2_TAT"></span></td>
+                    <td class="column5"><span class="WT" id="P2_WT"></span></td>
 				</tr>
 				<tr>
-					<td>P3</td>
-					<td><input data-process="P3" type="text" class="arrival_time" /></td>
-					<td><input data-process="P3" type="text" class="burst_time" /></td>
-                    <td><span class="TAT" id="P3_TAT"></span></td>
-                    <td><span class="WT" id="P3_WT"></span></td>
+					<td class="column1">P3</td>
+					<td class="column2"><input data-process="P3" type="text" class="arrival_time" /></td>
+					<td class="column3"><input data-process="P3" type="text" class="burst_time" /></td>
+                    <td class="column4"><span class="TAT" id="P3_TAT"></span></td>
+                    <td class="column5"><span class="WT" id="P3_WT"></span></td>
 				</tr>
 				<tr>
-					<td>P4</td>
-					<td><input data-process="P4" type="text" class="arrival_time" /></td>
-					<td><input data-process="P4" type="text" class="burst_time" /></td>
-                    <td><span class="TAT" id="P4_TAT"></span></td>
-                    <td><span class="WT" id="P4_WT"></span></td>
+					<td class="column1">P4</td>
+					<td class="column2"><input data-process="P4" type="text" class="arrival_time" /></td>
+					<td class="column3"><input data-process="P4" type="text" class="burst_time" /></td>
+                    <td class="column4"><span class="TAT" id="P4_TAT"></span></td>
+                    <td class="column5"><span class="WT" id="P4_WT"></span></td>
 				</tr>
 
                 <tr>
@@ -237,18 +225,19 @@ $(window).on('load', function() {
                 </tr>
 			</tbody>
 		</table>
-        <br/><br/>
-        <button type="button" class="addBtn" onclick="addRow();">Add Row</button>
+    </div>
+</div>
+</div>
+</div>
         <br/>
-        <br/>
-        <div class="resultTable" style="width: 95%">
+        <div style="width: 95%">
             <div id="gantt_chart">
             </div>
         </div>
         <div style="clear: both;"></div>
 		<p id="cust_console" style="color:red;"></p>
 		<button id="INIT_COMPUTE">Compute</button>
+    
 </center>
 </body>
-
 </html>
