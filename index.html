@@ -1,0 +1,42 @@
+<html id="cpu">
+	<head>
+    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="indexcpu.css"/>
+    <link rel="icon" href="C:\Users\Ramyaa\Documents\projects\cpu.png" type="image/icon type">
+        <title>CPU Scheduling Algorithms - Project</title>
+		
+		<script src="js/jquery-3.1.0.min.js"></script>
+        <script>
+            $(document).ready(function () {
+               $('#methods').change(function(){ location.href = $(this).val(); });
+            })
+
+
+       </script>
+	</head>
+	<body id="cpu">
+<div id="preloader">
+  <div id="status">&nbsp;</div>
+</div>
+<script>
+$(window).on('load', function() { 
+  $('#status').fadeOut(); 
+  $('#preloader').delay(350).fadeOut('slow'); 
+  $('body').delay(350).css({'overflow':'visible'});
+})
+</script>
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+<center><div id="card">
+                <h1>CPU SCHEDULING ALGORITHMS</h1>
+                <h2>A MINI PROJECT</h2>
+                <br>
+                <div>
+                <a href="FirstComeFirstServe.html">
+                  <button  class="button" id="start">START</button>
+                </a>
+                </div>
+        </div></body></center>
+	</body>
+</html>
