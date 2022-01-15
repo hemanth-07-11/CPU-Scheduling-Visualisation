@@ -18,4 +18,4 @@ We have also simulated the gaant chart, which is used to represent CPU schedulin
 # Contributors
 
 - A Special Thanks to [Ramyaa P](https://github.com/ramyaaprasath) for her valuable contributions in designing and UI
-- Also big thanks to [Sudarsan Kumar N](https://github.com/sudarsankumar) for his worthy contributions in adding few features, including "AddUser" feature.
+- Also big thanks to [Sudarsan Kumar N](https://github.com/sudarsankumar) for his worthy contributions in adding few features.
